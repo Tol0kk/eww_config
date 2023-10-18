@@ -1,0 +1,23 @@
+
+;; =========== Modules ===========
+(include "modules/variable.yuck")
+(include "modules/sysprogress.yuck")
+(include "modules/bar_panels.yuck")
+(include "modules/quicksettings.yuck")
+
+
+;; =========== Windows ===========
+(include "windows/default.yuck") ;; Windows Definition
+(include "windows/datemenu.yuck")
+(include "windows/dock.yuck")
+(include "windows/osd.yuck")
+(include "windows/powermenu.yuck")
+(include "windows/quicksettings.yuck")
+
+;; (include "yuck/widgets/powermenu.yuck")
+;; (include "yuck/widgets/dock.yuck")
+;; (include "yuck/widgets/datemenu.yuck")
+;; (include "yuck/bar_widgets.yuck")
+;; (include "yuck/osd.yuck")
+;; (include "init/topbar_init.yuck")
+

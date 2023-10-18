@@ -1,0 +1,46 @@
+(defvar     bluetooth       "{}") ;; UNUSED
+(defvar     network         "{}") ;; UNUSED
+(defvar     media           "{}") ;; UNUSED
+(defvar     media_positions "{}") ;; UNUSED
+(defvar     battery         "{}")
+(defvar     notifications   "{}") ;; UNUSED
+(defvar     apps            "{}") ;; UNUSED 
+
+
+
+(defpoll memory :interval "15s" "scripts/memory") ;; UNUSED 
+(defpoll memory_used_mb :interval "2m" "scripts/mem-ad used") ;; UNUSED 
+(defpoll memory_total_mb :interval "2m" "scripts/mem-ad total") ;; UNUSED 
+(defpoll memory_free_mb :interval "2m" "scripts/mem-ad free") ;; UNUSED 
+
+;; (defpoll    volume      :interval "3s" :initial "{}" `scripts/volume get`) ;; UNUSED 
+(defpoll    theme       :interval "3s" :initial "{}" `scripts/theme get`) ;; UNUSED 
+(defpoll    power       :interval "3s" :initial "{}" `scripts/power get`) ;; UNUSED 
+(defpoll    night_light :interval "3s" :initial "{}" `scripts/night_light get`) ;; UNUSED 
+(defpoll    brightness  :interval "3s" :initial "{}" `scripts/brightness get`) ;; UNUSED 
+
+(defpoll battery_status :interval "1m" "./scripts/battery --bat-st") ;; UNUSED 
+(defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL") ;; UNUSED 
+(defpoll song :interval "2s"  "~/.config/eww/scripts/music_info --song") ;; UNUSED 
+(defpoll song_artist :interval "2s"  "~/.config/eww/scripts/music_info --artist") ;; UNUSED 
+(defpoll current_status :interval "1s"  "~/.config/eww/scripts/music_info --time") ;; UNUSED 
+(defpoll song_status :interval "2s"  "~/.config/eww/scripts/music_info --status") ;; UNUSED 
+(defpoll cover_art :interval "2s"  "~/.config/eww/scripts/music_info --cover") ;; UNUSED 
+(defpoll calendar_day :interval "20h" "date '+%d'") ;; UNUSED 
+(defpoll calendar_year :interval "20h" "date '+%Y'") ;; UNUSED 
+
+;; (defpoll battery :interval "15s" "./scripts/battery --bat") ;; UNUSED 
+;; (defpoll battery_icon :interval "1m" "./scripts/battery --bat-icon") ;; UNUSED 
+
+;; (defpoll wifi_ssid :interval "1m" "~/.config/eww/scripts/wifi --ssid") ;; UNUSED 
+;; (defpoll wifi_icon :interval "1m" "~/.config/eww/scripts/wifi --icon") ;; UNUSED 
+;; (defpoll wifi_icon_color :interval "1m" "~/.config/eww/scripts/wifi --color") ;; UNUSED 
+
+
+;; (deflisten volume "scripts/volume get") ;; UNUSED 
+
+;; (defpoll date :interval "1m" "date '+%d/%m %A'") ;; UNUSED 
+
+;; (defpoll time :interval "5s"
+;;   :initial `date '+{"hour":"%H","min":"%M"}'`
+;;   `date +'{"hour":"%H","min":"%M"}'`)

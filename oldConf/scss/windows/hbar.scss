@@ -1,0 +1,188 @@
+.hpanel {
+  min-height: 1.8em;
+  font-weight: bold;
+  font-size: 1.1em;
+  font-family: $font;
+  color: $fg_color;
+  background-color: $bg_tansparent;
+  border-bottom: $border_width solid $popover_border_color;
+  box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 1);
+  padding: 0 0.5em;
+
+  .panel {
+    border-radius: $radii;
+    margin: 0 0.2em;
+
+    &.clock {
+      font-family: "SF Mono";
+      font-size: 1.1em;
+      .hour,
+      .minutes {
+        font-size: 1.15em;
+        color: transparentize($fg, 0);
+      }
+      .interact {
+        padding: 0 0.3em;
+        color: transparentize($fg, 0.1);
+        &:hover {
+          color: transparentize($fg, 0.25);
+        }
+      }
+  
+    }
+    &.window {
+      background-color: transparent;
+      color: transparentize($fg, 0.3);
+    }
+
+    &.workspaces {
+      .workspace-btn {
+        all: unset;
+        font-size: 1.2em;
+        padding: 0 0.4em;
+        margin: 0em;
+
+        &.empty {
+          color: transparentize($fg, 0.8);
+        }
+        &.occupied {
+          color: transparentize($fg, 0.2);
+        }
+        &.active {
+          color: $fg;
+        }
+        &:hover {
+          &.empty {
+            color: transparentize($fg, 0.5);
+          }
+          &.occupied {
+            color: transparentize($fg, 0.5);
+          }
+          &.active {
+            color: transparentize($fg, 0.5);
+          }
+        }
+        &:active {
+          color: $accent;
+        }
+      }
+    }
+  }
+
+  .button {
+    .icon {
+      font-size: 1.2em;
+    }
+
+    @include button($flat: true, $radii: $panel_button_radius);
+
+    > * {
+      padding: 0 0.8em 0 0.54em;
+    }
+    &.launcher {
+      .icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-top: 2px;
+        background-image: url($assets + "nixos.png");
+      }
+    }
+
+    &.powermenu {
+      color: $red;
+    }
+
+    &.system-indicators {
+      .controls {
+        * {
+          margin: 0 0.2em;
+        }
+      }
+      .slider {
+        @include slider();
+      }
+    }
+  }
+
+  // &.media{
+  //     .icon{
+  //         margin-right: .2em;
+  //         &.spotify{ color: $green; }
+  //         &.firefox{ color: $orange; }
+  //         &.mpv{ color: $magenta; }
+  //     }
+  // }
+  //   }
+}
+
+.datemenu {
+  font-family: $font;
+
+  @include floating_widget($padding: 1em);
+
+  .widget {
+    @include widget;
+    margin: $spacing;
+    padding: $spacing;
+  }
+
+  .clock * {
+    font-family: "SF Mono";
+    margin-top: 0;
+    font-size: 7em;
+    padding: 0;
+    margin: -0.1em 0;
+  }
+
+  .uptime {
+    margin-bottom: $spacing;
+    font-size: 1.1em;
+    color: transparentize($fg_color, 0.3);
+  }
+
+  .calendar-bin {
+    padding: 1em 2em 0.4em 2em;
+    @include calendar;
+  }
+
+  .system {
+    > * {
+      @include widget;
+      margin: $spacing;
+      padding: 5px;
+      min-width: 3.4em;
+      min-height: 3.4em;
+    }
+    circular-progress {
+      background-color: $bg_alt;
+      color: $accent;
+      &.battery {
+        &.low {
+          color: $red;
+        }
+      }
+      .icon {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  // .media{ // TODO media_player
+  //     @include media($style: 'widget')
+  // }
+
+  // .events.widget{ // TODO media_player
+  //     padding: 0;
+  //     .events{
+  //         @include events;
+  //     }
+  // }
+
+  // .weather{ // TODO weather
+  //     @include weather;
+  // }
+}
+
+.bar {
+  background-color: $bg_tansparent;
+}

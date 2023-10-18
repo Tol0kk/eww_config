@@ -1,0 +1,53 @@
+.background.powermenu{
+    background-color: rgba(0,0,0,0.5);
+    font-family: "SF Mono";
+
+
+    .content{
+        @include floating_widget;
+        // .user{ @include user; }
+        .clock{
+            font-family: "SF Mono";
+            // text-shadow: $text_shadow;
+            margin-bottom: 2.2em;
+            .hour *{ font-size: 9em }
+            .date{ font-size: 2em }
+        }
+        .power-menu{ 
+            border-radius: $radii*3;
+            padding: 15px;
+        }
+        .button-bin{
+            margin: 15px;
+            margin-bottom: 0;
+            .button{
+                @include button($focusable: true);
+                border-radius: $radii*2.4;
+                font-size: 60px;
+                min-width: 130px;
+                min-height: 130px;
+                .icon{
+                    background-size: contain;
+                    margin: 24px;
+                    @if $theme == 'light' {
+                        &.shutdown{ background-image: url($assets+'powermenu/light-theme/shutdown.png'); }
+                        &.reboot{   background-image: url($assets+'powermenu/light-theme/reboot.png'); }
+                        &.logout{   background-image: url($assets+'powermenu/light-theme/logout.png'); }
+                        &.suspend{  background-image: url($assets+'powermenu/light-theme/suspend.png'); }
+                        &.lock{     background-image: url($assets+'powermenu/light-theme/lock.png'); }
+                    }@else{
+                        &.shutdown{ background-image: url($assets+'powermenu/dark-theme/shutdown.png'); }
+                        &.reboot{   background-image: url($assets+'powermenu/dark-theme/reboot.png'); }
+                        &.logout{   background-image: url($assets+'powermenu/dark-theme/logout.png'); }
+                        &.suspend{  background-image: url($assets+'powermenu/dark-theme/suspend.png'); }
+                        &.lock{     background-image: url($assets+'powermenu/dark-theme/lock.png'); }
+                    }
+                }
+            }
+            .label{
+                font-size: 20px;
+                margin: 8px 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "svg.preview.background": "editor",
+    "rust-analyzer.linkedProjects": [
+        "./scripts_src/Cargo.toml"
+    ]
+}

@@ -1,0 +1,74 @@
+$base0 : #1B2229;
+$base1 : #1c1f24;
+$base2 : #202328;
+$base3 : #23272e;
+$base4 : #3f444a;
+$base5 : #5B6268;
+$base6 : #73797e;
+$base7 : #9ca0a4;
+$base8 : #b1b1b1;
+$base9 : #E6E6E6;
+
+$grey : #3f444a;
+$red : #ff6c6b;
+$orange : #da8548;
+$yellow : #ecbe7b;
+$green : #95be65;
+$teal : #4db5bd;
+$blue : #51afef;
+$dark-blue : #2257a0;
+$magenta : #c678dd;
+$violet : #a9a1e1;
+$cyan : #46D9FF;
+$dark-cyan : #5699af;
+$white : #efefef;
+
+$bg : #282c34;
+$bg_alt : #21242b;
+$fg : #bbc2cf;
+$fg : #bbc2cf;
+$fg_alt : #5B6268;
+$bg_tansparent : rgba($color: $bg , $alpha: 0.7);;
+
+$highlight : $violet;
+$highlight_fg : $bg_alt;
+
+$border_width : 1px;
+$popover_border_color: rgba($color: $violet , $alpha: 0.7);
+
+$fg_color: $fg;
+$bg_color: $bg;
+$border_color: transparent;
+$hover: blue;
+$hover_fg: $teal;
+$accent: $violet;
+$accent_fg: $fg_alt;
+$radii: 10px;
+$panel_button_radius: $radii;
+$border: 1px solid $bg_alt;
+$popover_radius: 10px;
+$destructive: red;
+$succes: $green;
+
+$button_bg: $base3;
+$button_radius: 10px;
+
+$panel_bg: $button_bg;
+
+$variant: "light";
+$theme: "dark";
+$eww_conf_path: "/home/titouan/.config/eww/";
+$assets: $eww_conf_path + "assets/";
+$selected_bg_color: $red;
+$destructive_color: blue;
+
+$popover_padding: 10px;
+$wm_gaps: 10px;
+
+$widget_radius: $radii;
+$widget_bg: $bg_alt;
+$spacing: 0.5em;
+
+$font: "Cascadia Code";
+// $font: "SF Mono";
+

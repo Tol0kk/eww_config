@@ -1,0 +1,133 @@
+
+$base0 : #1B2229;
+$base1 : #1c1f24;
+$base2 : #202328;
+$base3 : #23272e;
+$base4 : #3f444a;
+$base5 : #5B6268;
+$base6 : #73797e;
+$base7 : #9ca0a4;
+$base8 : #b1b1b1;
+$base9 : #E6E6E6;
+
+$grey : #3f444a;
+$red : #ff6c6b;
+$orange : #da8548;
+$yellow : #ecbe7b;
+$green : #95be65;
+$teal : #4db5bd;
+$blue : #51afef;
+$dark-blue : #2257a0;
+$magenta : #c678dd;
+$violet : #a9a1e1;
+$cyan : #46D9FF;
+$dark-cyan : #5699af;
+$white : #efefef;
+
+$bg : #282c34;
+$bg_alt : #21242b;
+$fg : #bbc2cf;
+$fg_alt : #5B6268;
+
+$highlight : $violet;
+$highlight_fg : $bg_alt;
+
+* {
+   all: unset;
+	font-family: FreeSerif;
+;}
+
+.bar {
+    background-color: rgba($color: $bg , $alpha: 0.1);
+    border-radius: 0em;
+    // border: 1px solid blue;
+}
+
+.floating {
+  background-color: rgba($color: red, $alpha: 0.9);
+}
+
+// LEFT MODULES
+.bar_child * {
+//     all : unset;
+}
+.bar > box > box {
+    background-color: rgba($color: $bg_alt, $alpha: 0.9);
+    color: $fg;
+    border-radius: 0.4em;
+    // top right bottom left
+    padding: 0.05em 0.5em 0.05em 0.5em;
+    margin: 0.2em 1em 0.2em 1em;
+    border: 0.1em solid $violet;
+}
+
+// NixOS Button
+.NixOSIcon * {
+    margin-right: 0.5em;
+    //padding: .2em;
+    border-radius: 7px;
+    background-color: rgba($color: $base2, $alpha: 0.9);
+}
+
+.NixOSIcon:hover * {
+    background-color: rgba($color: $highlight, $alpha: 0.9);
+}
+
+
+// Workspace
+
+/// CENTER MODULES
+/// Clock
+.clock {
+}
+
+/// RIGHT MODULES
+.vol {
+  background-color : $base4;
+}
+
+// .pc-status:hover
+// {
+//     background: @alt_solid_bg_color;
+// }
+
+// .vol box {
+//     padding: 0;
+//     background: red;
+//     padding-right: 8px;
+//     border-radius: 5px;
+//     transition: 0.2s all ease;
+// }
+
+// .vol label {
+//     background: blue;
+//     padding: 1px 4px;
+// }
+
+// .vol:hover box {
+//     background: blue;
+//     // background: @alt_solid_bg_color;
+
+// }
+
+// .volume-type {
+//     background: red;
+//     // background: @selected_bg_color;
+//     border-bottom-left-radius: 5px;
+//     border-top-left-radius: 5px;
+//     color: blue;
+// }
+
+// .pc-status {
+//     margin: 0 4px;
+//     margin-left: 8px;
+//     padding: 1px 8px;
+// }
+
+// .spotify-icon {
+//     color: @LIME_500;
+// }
+
+// .time {
+//     padding: 1px 8px;
+// }

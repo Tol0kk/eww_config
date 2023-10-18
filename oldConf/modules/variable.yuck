@@ -1,0 +1,72 @@
+
+
+(deflisten  window           `scripts/workspace window`)
+(deflisten  workspaces       `scripts/wokrspace workspaces`)
+(deflisten  active           "scripts/workspace window")
+;; (deflisten  active_workspace `scripts/workspace active`)
+
+(defpoll battery :interval "15s"
+  :initial '{"availabe":"false","percentage":"100","icon":"","state":""}'
+"./scripts/battery info")
+
+(defvar night_light '{"state":"on","icon":"a"}')
+(defvar notifications '{"dnd":{"icon":""}}')
+;; (defvar network '{}')
+(defvar network '{"wifi":{"state":"on","ssid":"appart"},"primary":"wifi","wifi":{"style":"aa","icon":""}}')
+(defvar bluetooth '{"icon":""}')
+(defvar power '{"icon":"p","state":"on"}')
+(defvar brightness '{"screen":{"icon":"","level":"60"}}')
+(defvar theme '{"icon":"d"}')
+(defvar media_positions 100)
+(defvar media '{"players":
+  {"player1":
+  {"name":"numero1",
+  "cover":"path",
+  "artiste":"artiste",
+  "title":"title",
+  "length":"20",
+  "icon":"i",
+  "shuffle":"true",
+  "canPrev":"true",
+  "canNext":"true",
+  "canPlay":"true",
+  "loop":"true"},
+  "player2":
+  {"name":"numero1",
+  "cover":"path",
+  "artiste":"artiste",
+  "title":"title",
+  "length":"20",
+  "icon":"i",
+  "shuffle":"true",
+  "canPrev":"true",
+  "canNext":"true",
+  "canPlay":"true",
+  "loop":"true"}
+  }
+}')
+
+(defvar real_name "Titouan Le Dilavrec")
+(defvar user_name "TolokTir")
+
+(defpoll    volume
+  :interval "3s"
+  :initial '{
+  "level": "0",
+  "icon": "󰖀",
+  "type_icon": "󰓃",
+  "mute": {
+  "state": "on",
+  "icon": "󰍭"
+}}' 
+`scripts/volume get`)
+
+(defpoll    hour        :interval "5s" `date "+%H"`)
+(defpoll    minutes     :interval "5s" `date "+%M"`)
+(defpoll    date        :interval "5s" `date "+%A %d %b"`)
+(defpoll    uptime      :interval "60s" "uptime | awk '{print $3}' | tr ',' ' '")
+
+(defvar eww "eww -c $HOME/.config/eww") ;; UNUSED
+
+
+

@@ -1,0 +1,18 @@
+// @import "./scss/bar.scss";
+* {
+    all: unset;
+}
+
+// imports
+@import "./scss/color.scss";
+@import "./scss/mixin.scss";
+@import "./scss/modules/sys-sliders.scss";
+@import "./scss/modules/user.scss";
+@import "./scss/modules/toggle-button.scss";
+@import "./scss/modules/media.scss";
+
+
+// Windows
+@import "scss/windows/powermenu.scss";
+@import "scss/windows/quicksettings.scss";
+@import "scss/windows/hbar.scss";

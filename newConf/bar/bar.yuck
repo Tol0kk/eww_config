@@ -1,0 +1,36 @@
+(defwindow bar
+    :monitor 0
+    :exclusive true
+    :stacking "fg"
+    :namespace "eww_bar"
+    :geometry (geometry :width "100%"
+                        :anchor "top center")(hbar))
+
+(defwidget hbar [] (centerbox
+    (box
+      :class "leftBar"
+    )
+    (box
+      :class "centerBar"
+    )
+    (box
+      :class "righBar"
+      :halign "end"
+      (clock)
+    )
+  ))
+
+(defvar time-rev false)
+(defwidget clock []
+  (eventbox
+    :onhover "eww update time-rev=true"
+    :onhoverlost "eww update time-rev=false"
+    :class "panel clock"
+    (box :space-evenly "false" :orientation "h" :spacing "3"
+    (revealer :transition "slideright"
+      :reveal time-rev
+      :duration "350ms" ;; might use class button from interact
+      (label :text date))
+      (label :text hours :class "hour")
+      (label :text "⁝")
+      (label :text mins :class "minutes"))))

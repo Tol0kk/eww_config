@@ -1,0 +1,119 @@
+;; Use Modules/sysprogress.yuck
+(defwindow calendar
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry :width  "15%"
+                        :height "20%"
+                        :anchor "top left")
+    (eventbox :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
+              (datemenu :valign "start" :halign "start")))
+
+(defvar calendartitle '')
+(defvar monthshift 0)
+(defvar weekdays '[{"day":"Mo","today":"0"},{"day":"Tu","today":"0"},{"day":"We","today":"0"},{"day":"Th","today":"0"},{"day":"Fr","today":"0"},{"day":"Sa","today":"0"},{"day":"Su","today":"0"}]')
+(defpoll calendar :interval "15m" `eww update monthshift=0 && eww update calendartitle="$(date '+%B %Y')" && scripts/calendarlayout`)
+
+(defwidget datemenu [valign halign] (box
+    :valign valign
+    :halign halign
+    :orientation "v"
+    :class "datemenu"
+    :space-evenly false
+    (box
+        :halign "center"
+        :space-evenly false
+        :class "clock"
+        (label :text hour)
+        (label :text ":")
+        (label :text minutes))
+    (label  
+        :class "uptime" 
+        :text "uptime: ${uptime}"
+        :valign "start")
+    (box
+        :class "calendar-bin widget"
+        ;; (calendar)
+        (box
+        :space-evenly false :orientation "v"
+        :halign "end" :valign "center"
+        (box
+          :space-evenly false :orientation "v"
+          (eventbox
+            :onscroll "scripts/scrollmonth {} &"
+            (box
+              :orientation "v"
+              :space-evenly false
+              (centerbox
+                :style "padding: 0 12px;"
+                (label :xalign 0 :class "calendarwin-title" :text "${calendartitle}")
+                (box)
+                (box
+                  :halign "end" :valign "center"
+                  (box
+                    :halign "end" :valign "center"
+                    (button
+                      :onclick "scripts/scrollmonth up &"
+                      :halign "end" :valign "center"
+                      :class "winicon dashfs-monthbutton"
+                      (image
+                        :valign "center"
+                        :path "images/svg/dark/caretup.svg"
+                      )
+                    )
+                    (button
+                      :onclick "scripts/scrollmonth down &"
+                      :halign "end" :valign "center"
+                      :class "winicon dashfs-monthbutton"
+                      (image
+                        :valign "center"
+                        :path "images/svg/dark/caretdown.svg"
+                      )
+                    )
+                  )
+                )
+              )
+              (box :space-evenly false :orientation "v"
+                ; :class "dashfs-section-nopad"
+                (box
+                  (for day in weekdays
+                    (box
+                      :class "calendarwin-button day${day.today}"
+                      (label :class "calendarwin-text" :text "${day.day}")
+                    )
+                  )
+                )
+                ;; (for week in calendar
+                ;;   (box
+                ;;     (for day in week
+                ;;       (button
+                ;;         :class "calendarwin-button calendarwin-day${day.today}"
+                ;;         (label :class "calendarwin-text" :text "${day.day}")
+                ;;       )
+                ;;     )
+                ;;   )
+                ;; )
+              )
+            )
+          )
+        )
+      )
+        )
+    (box
+        :class "system"
+        (sysprogress_cpu)
+        (sysprogress_ram)
+        (sysprogress_temp)
+        ;; (sysprogress_bat)
+    )
+    ;; (box :class "events widget" (events)) // TODO media_player
+    ;; ;; (for player in {media.players}
+    ;; ;;     (media_player :player player ))
+
+    ;; (box  // TODO weather
+    ;;     :class "weather-box"
+    ;;     :orientation "v"
+    ;;     (for place in weather
+    ;;          (weather :place place)))
+))
+
+

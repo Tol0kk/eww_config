@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "--sound-control")
+        pavucontrol
+        ;;
+    "--bluetooth")
+        blueman-manager
+        ;;
+    "--file-manager-gui")
+        nemo
+        ;;
+    "--browser")
+        brave
+        ;;
+    "--task-manager")
+        kitty btop
+        ;;
+    "--mail")
+        thunderbird
+        ;;
+esac
